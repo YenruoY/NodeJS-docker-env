@@ -1,0 +1,19 @@
+services:
+  react_env:
+    build:
+      context : .
+      dockerfile : Dockerfile
+
+    volumes:
+      - ./apps:/home/node_user
+
+    expose:
+      - "5173"
+      - "8000"
+
+    ports:
+      - "8000:8000" 
+      - "5173:5173"
+
+    stdin_open: true
+    tty: true

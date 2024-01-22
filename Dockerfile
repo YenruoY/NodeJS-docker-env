@@ -14,7 +14,7 @@ RUN curl -sL https://deb.nodesource.com/setup_21.x | bash -
 RUN apt-get install -y nodejs
 
 # Create a new user
-RUN useradd -ms /bin/bash test
+RUN useradd -ms /bin/bash node_user
 USER node_user
 WORKDIR /home/node_user
 

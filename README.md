@@ -18,7 +18,7 @@ There are three files int this repo :
 
 1. Clone the repo :
 
-        git clone 
+        git clone https://github.com/YenruoY/NodeJS-docker-env.git
 
 1. Add execute permission to the bash script :
     

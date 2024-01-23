@@ -1,3 +1,5 @@
+![](./assets/demo.GIF)
+
 # About
 
 This is a scrip I made for my local ReactJS development. I don't use NodeJS or NPM package manager and don't have the need to install NodeJS locally. Hence I build this scrip and Docker files that allow me to run NodeJS inside a container when needed, where the files are accessible from my host machine and the data stays persistent between the container and the host machine.

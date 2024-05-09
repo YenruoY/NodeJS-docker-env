@@ -15,7 +15,7 @@ RUN apt-get install -y nodejs
 RUN npm install pm2 -g && npm install -g @angular/cli
 
 # Create a new user
-RUN useradd -G wheel -ms /bin/bash node_user && echo toor | passwd node_user --stdin
+RUN useradd -G wheel -ms /bin/bash node_user && echo node_user:toor | chpasswd
 USER node_user
 WORKDIR /home/node_user
 

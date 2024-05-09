@@ -7,17 +7,18 @@ ENV LANG en_US.utf8
 
 # Installing necessary packages
 RUN apt-get install curl -y \
-	&& apt-get install git vim -y
+	&& apt-get install git vim tmux wget -y
 
 # Install node.js
 RUN curl -sL https://deb.nodesource.com/setup_21.x | bash -
 RUN apt-get install -y nodejs
+RUN npm install pm2 -g && npm install -g @angular/cli
 
 # Create a new user
-RUN useradd -ms /bin/bash node_user
+RUN useradd -G wheel -ms /bin/bash node_user && echo toor | passwd node_user --stdin
 USER node_user
 WORKDIR /home/node_user
 
 EXPOSE 5173 8000
-COPY ./apps . 
+COPY ./apps .
 CMD ["/bin/bash"]

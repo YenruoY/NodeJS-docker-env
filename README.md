@@ -2,7 +2,7 @@
 
 # About
 
-This is a scrip I made for my local ReactJS development. I don't use NodeJS or NPM package manager and don't have the need to install NodeJS locally. Hence I build this scrip and Docker files that allow me to run NodeJS inside a container when needed, where the files are accessible from my host machine and the data stays persistent between the container and the host machine.
+This is a scrip I made for my local ReactJS development. I don't use NodeJS or NPM package manager and don't have the need to install NodeJS locally. Hence, I build this scrip and Docker files that allow me to run NodeJS inside a container when needed, where the files are accessible from my host machine and the data stays persistent between the container and the host machine.
 
 # Why not use some NodeJS Docker image?
 
@@ -23,7 +23,7 @@ There are three files int this repo :
         git clone https://github.com/YenruoY/NodeJS-docker-env.git
 
 1. Add execute permission to the bash script :
-    
+
         chmod +x start_node_env.sh
 
 1. Run the script :
@@ -48,7 +48,7 @@ The `./apps` folder in this repo is mounted to the `/home/node_user/` directory 
 
 ![](./assets/04_persistence.png)
 
-# Dependencies 
+# Dependencies
 
 1. Docker engine
 1. Docker compose
@@ -73,3 +73,15 @@ And then start the server normally :
         npm run dev
 
 Now the application should be accessible.
+
+
+# Change logs
+
+### 8/11/2024
+
+- Now the shell is accessible through `ubuntu` user with **root** permission.
+- Current password for **root** user is **toor**.
+- Added new port `8080`
+- Added packages : Tmux, Vim, Git.
+- NPM is installed using NVM package.
+- Fixed permission related issues.

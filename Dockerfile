@@ -7,18 +7,21 @@ ENV LANG en_US.utf8
 
 # Installing necessary packages
 RUN apt-get install curl -y \
-	&& apt-get install git vim tmux wget -y
-
-# Install node.js
-RUN curl -sL https://deb.nodesource.com/setup_21.x | bash -
-RUN apt-get install -y nodejs
-RUN npm install pm2 -g && npm install -g @angular/cli
+	&& apt-get install git vim tmux wget sudo -y
 
 # Create a new user
-RUN useradd -G wheel -ms /bin/bash node_user && echo node_user:toor | chpasswd
-USER node_user
-WORKDIR /home/node_user
+RUN echo ubuntu:toor | chpasswd
+USER ubuntu
+WORKDIR /home/ubuntu
 
-EXPOSE 5173 8000
+# Install node.js
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+RUN npm install node  # command not tested for automation
+
+EXPOSE 5173 8000 8080
 COPY ./apps .
 CMD ["/bin/bash"]
+
+##########################################
+# Needs .bashrc before curl command

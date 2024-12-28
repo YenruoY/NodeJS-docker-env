@@ -14,10 +14,14 @@ RUN echo ubuntu:toor | chpasswd
 USER ubuntu
 WORKDIR /home/ubuntu
 
-# Install node.js
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+SHELL ["/bin/bash", "--login", "-c"]
 
-RUN npm install node  # command not tested for automation
+# Install node.js
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash \
+	&& source ~/.nvm/nvm.sh \
+	&& nvm install node
+
+# RUN nvm install node  # command not tested for automation
 
 EXPOSE 5173 8000 8080
 COPY ./apps .
